@@ -13,6 +13,7 @@
 		8732A6E725ECD067001D2B2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8732A6E525ECD067001D2B2B /* Main.storyboard */; };
 		8732A6E925ECD069001D2B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8732A6E825ECD069001D2B2B /* Assets.xcassets */; };
 		8732A6EC25ECD069001D2B2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8732A6EA25ECD069001D2B2B /* LaunchScreen.storyboard */; };
+		8732A6F525ECD08D001D2B2B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8732A6F425ECD08D001D2B2B /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8732A6E825ECD069001D2B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8732A6EB25ECD069001D2B2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8732A6ED25ECD069001D2B2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8732A6F425ECD08D001D2B2B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8732A6E825ECD069001D2B2B /* Assets.xcassets */,
 				8732A6EA25ECD069001D2B2B /* LaunchScreen.storyboard */,
 				8732A6ED25ECD069001D2B2B /* Info.plist */,
+				8732A6F425ECD08D001D2B2B /* .gitignore */,
 			);
 			path = TwitterClone;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8732A6F525ECD08D001D2B2B /* .gitignore in Resources */,
 				8732A6EC25ECD069001D2B2B /* LaunchScreen.storyboard in Resources */,
 				8732A6E925ECD069001D2B2B /* Assets.xcassets in Resources */,
 				8732A6E725ECD067001D2B2B /* Main.storyboard in Resources */,
