@@ -76,6 +76,9 @@ class TweetCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 5
         return imageView
     }()
 
@@ -193,6 +196,10 @@ class TweetCollectionViewCell: UICollectionViewCell {
             detailButton.topAnchor.constraint(equalTo: headlineView.topAnchor),
             detailButton.trailingAnchor.constraint(equalTo: headlineView.trailingAnchor),
             detailButton.bottomAnchor.constraint(equalTo: headlineView.bottomAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            contentImageView.widthAnchor.constraint(equalTo: contentImageView.heightAnchor, multiplier: 2)
         ])
     }
 }
