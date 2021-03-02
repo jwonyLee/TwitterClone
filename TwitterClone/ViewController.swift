@@ -2,18 +2,24 @@
 //  ViewController.swift
 //  TwitterClone
 //
-//  Created by 이지원 on 2021/03/01.
+//  Created by 이지원 on 2021/03/02.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let layout = UICollectionViewFlowLayout()
+        let timelineViewController = TimelineViewController(collectionViewLayout: layout)
+        timelineViewController.tabBarItem = UITabBarItem(title: "",
+                                                         image: UIImage(systemName: "house"),
+                                                         selectedImage: UIImage(systemName: "house.fill"))
+
+        let tabBars = [timelineViewController]
+
+        viewControllers = tabBars
     }
-
-
 }
-
