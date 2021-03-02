@@ -9,10 +9,26 @@ import UIKit
 
 class TimelineViewController: UICollectionViewController {
 
+    let tweetFloatingButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "pencil.tip"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.shadowRadius = 1.0
+        button.layer.shadowOpacity = 0.5
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = false
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureNavigation()
+        configureTweetButton()
 
         collectionView.backgroundColor = .white
         collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -31,7 +47,17 @@ class TimelineViewController: UICollectionViewController {
                                                                                    style: .plain,
                                                                                    target: self,
                                                                                    action: nil)
+    }
 
+    private func configureTweetButton() {
+        view.addSubview(tweetFloatingButton)
+
+        NSLayoutConstraint.activate([
+            tweetFloatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            tweetFloatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            tweetFloatingButton.widthAnchor.constraint(equalToConstant: 50),
+            tweetFloatingButton.heightAnchor.constraint(equalTo: tweetFloatingButton.widthAnchor)
+        ])
     }
 
     @objc func scrollToTop(_ sender: UIButton) {
