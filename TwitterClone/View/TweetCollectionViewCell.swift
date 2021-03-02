@@ -16,12 +16,11 @@ class TweetCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "person")
         imageView.backgroundColor = .gray
-        imageView.clipsToBounds = true
+        imageView.clipsToBounds = true // 이미지가 cornerRadius에 의해 프레임 밖으로 벗어날 경우 잘라냄
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 25 // TODO: imageView.frame.size.width(or height) / 2 가 적용되지 않아 임시로 상수값 대입.
-        imageView.layer.masksToBounds = true // 이미지가 cornerRadius에 의해 프레임 밖으로 벗어날 경우 잘라냄
+        imageView.layer.cornerRadius = 25 // TODO: [imageView.frame.size.width(or height) / 2]가 적용되지 않아 임시로 상수값 대입.
         return imageView
-    }()
+    }() // layer.masksToBounds와 clipsToBounds의 차이가 무엇인지 찾아보기
 
     let usernameLabel: UILabel = {
         let label = UILabel()
