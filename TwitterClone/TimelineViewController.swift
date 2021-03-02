@@ -7,14 +7,13 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController {
-
+class TimelineViewController: UICollectionViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.red
+        
+        collectionView?.backgroundColor = .white
     }
-
-
+    
+    
 }
-
