@@ -11,8 +11,16 @@ class TimelineViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tabBarController?.navigationItem.titleView = UIImageView(image: UIImage(systemName: "cloud.bolt.fill"))
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
+                                                                                  style: .plain,
+                                                                                  target: self,
+                                                                                  action: nil)
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"),
+                                                                                   style: .plain,
+                                                                                   target: self,
+                                                                                   action: nil)
 
         collectionView.backgroundColor = .white
         collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
