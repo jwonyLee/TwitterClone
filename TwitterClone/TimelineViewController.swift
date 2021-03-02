@@ -12,7 +12,17 @@ class TimelineViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tabBarController?.navigationItem.titleView = UIImageView(image: UIImage(systemName: "cloud.bolt.fill"))
+        configureNavigation()
+
+        collectionView.backgroundColor = .white
+        collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    }
+
+    private func configureNavigation() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "cloud.bolt.fill"), for: .normal)
+        button.addTarget(self, action: #selector(scrollToTop(_:)), for: .touchUpInside)
+        self.tabBarController?.navigationItem.titleView = button
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
                                                                                   style: .plain,
                                                                                   target: self,
@@ -22,8 +32,10 @@ class TimelineViewController: UICollectionViewController {
                                                                                    target: self,
                                                                                    action: nil)
 
-        collectionView.backgroundColor = .white
-        collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    }
+
+    @objc func scrollToTop(_ sender: UIButton) {
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }
 
