@@ -13,6 +13,12 @@ class SearchViewController: UITableViewController {
         super.viewDidLoad()
 
         configureNavigation()
+        configureTableView()
+    }
+
+    private func configureTableView() {
+        tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(ImageBannerTableViewCell.self, forCellReuseIdentifier: ImageBannerTableViewCell.identifier)
     }
     
     private func configureNavigation() {
@@ -37,5 +43,25 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
+    }
+}
+
+extension SearchViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return tableView.contentSize.width * 0.5
+        }
+
+        return UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ImageBannerTableViewCell.identifier, for: indexPath)
+
+        return cell
     }
 }
