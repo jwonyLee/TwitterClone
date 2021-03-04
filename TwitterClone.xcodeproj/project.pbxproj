@@ -16,6 +16,7 @@
 		8732A6F525ECD08D001D2B2B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8732A6F425ECD08D001D2B2B /* .gitignore */; };
 		8732A72025EDBB61001D2B2B /* TweetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732A71F25EDBB61001D2B2B /* TweetCollectionViewCell.swift */; };
 		8755C0E925EE0FD300596ED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755C0E825EE0FD300596ED0 /* ViewController.swift */; };
+		8755C10025F111A400596ED0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755C0FF25F111A400596ED0 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8732A6F425ECD08D001D2B2B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8732A71F25EDBB61001D2B2B /* TweetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCollectionViewCell.swift; sourceTree = "<group>"; };
 		8755C0E825EE0FD300596ED0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8755C0FF25F111A400596ED0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				8732A6ED25ECD069001D2B2B /* Info.plist */,
 				8732A6F425ECD08D001D2B2B /* .gitignore */,
 				8755C0E825EE0FD300596ED0 /* ViewController.swift */,
+				8755C0FF25F111A400596ED0 /* SearchViewController.swift */,
 			);
 			path = TwitterClone;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8755C10025F111A400596ED0 /* SearchViewController.swift in Sources */,
 				8755C0E925EE0FD300596ED0 /* ViewController.swift in Sources */,
 				8732A72025EDBB61001D2B2B /* TweetCollectionViewCell.swift in Sources */,
 				8732A6E425ECD067001D2B2B /* TimelineViewController.swift in Sources */,

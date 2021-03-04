@@ -17,7 +17,11 @@ class ViewController: UITabBarController {
         timelineViewController.tabBarItem = UITabBarItem(title: "",
                                                          image: UIImage(systemName: "house"),
                                                          selectedImage: UIImage(systemName: "house.fill"))
-        let tabBars = [timelineViewController]
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.tabBarItem = UITabBarItem(title: "",
+                                                         image: UIImage(systemName: "magnifyingglass"),
+                                                         selectedImage: UIImage(systemName: "magnifyingglass"))
+        let tabBars = [timelineViewController, searchViewController]
 
         viewControllers = tabBars
     }
