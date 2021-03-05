@@ -18,6 +18,7 @@
 		8755C10025F111A400596ED0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755C0FF25F111A400596ED0 /* SearchViewController.swift */; };
 		87A36DC225F1399A0069AE22 /* ImageBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A36DC125F1399A0069AE22 /* ImageBannerTableViewCell.swift */; };
 		87A36DC525F13DB20069AE22 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A36DC425F13DB20069AE22 /* TrendTableViewCell.swift */; };
+		87A36DC825F20BA20069AE22 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A36DC725F20BA20069AE22 /* UserFollowTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8755C0FF25F111A400596ED0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87A36DC125F1399A0069AE22 /* ImageBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBannerTableViewCell.swift; sourceTree = "<group>"; };
 		87A36DC425F13DB20069AE22 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
+		87A36DC725F20BA20069AE22 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				8732A71F25EDBB61001D2B2B /* TweetCollectionViewCell.swift */,
 				87A36DC125F1399A0069AE22 /* ImageBannerTableViewCell.swift */,
 				87A36DC425F13DB20069AE22 /* TrendTableViewCell.swift */,
+				87A36DC725F20BA20069AE22 /* UserFollowTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A36DC825F20BA20069AE22 /* UserFollowTableViewCell.swift in Sources */,
 				87A36DC225F1399A0069AE22 /* ImageBannerTableViewCell.swift in Sources */,
 				8755C10025F111A400596ED0 /* SearchViewController.swift in Sources */,
 				8755C0E925EE0FD300596ED0 /* ViewController.swift in Sources */,

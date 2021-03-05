@@ -20,6 +20,7 @@ class SearchViewController: UITableViewController {
         tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(ImageBannerTableViewCell.self, forCellReuseIdentifier: ImageBannerTableViewCell.identifier)
         tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
+        tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: UserFollowTableViewCell.identifier)
     }
     
     private func configureNavigation() {
@@ -50,14 +51,14 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return 5
+            return 3
         }
     }
 
@@ -72,6 +73,8 @@ extension SearchViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "나를 위한 트렌드"
+        } else if section == 2 {
+            return "팔로우 추천"
         }
         return nil
     }
@@ -84,6 +87,10 @@ extension SearchViewController {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath)
+
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath)
 
             return cell
         default:
