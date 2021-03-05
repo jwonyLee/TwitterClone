@@ -17,8 +17,9 @@ class SearchViewController: UITableViewController {
     }
 
     private func configureTableView() {
-        tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(ImageBannerTableViewCell.self, forCellReuseIdentifier: ImageBannerTableViewCell.identifier)
+        tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
     }
     
     private func configureNavigation() {
@@ -30,13 +31,13 @@ class SearchViewController: UITableViewController {
         definesPresentationContext = true
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: nil)
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"),
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: nil)
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: nil)
     }
 }
 
@@ -47,8 +48,17 @@ extension SearchViewController: UISearchResultsUpdating {
 }
 
 extension SearchViewController {
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,9 +69,25 @@ extension SearchViewController {
         return UITableView.automaticDimension
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ImageBannerTableViewCell.identifier, for: indexPath)
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "나를 위한 트렌드"
+        }
+        return nil
+    }
 
-        return cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImageBannerTableViewCell.identifier, for: indexPath)
+
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath)
+
+            return cell
+        default:
+            return tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath)
+        }
     }
 }
