@@ -18,6 +18,7 @@ class TrendTableViewCell: UITableViewCell {
         label.text = "대한민국에서 트렌드 중"
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
 
@@ -37,6 +38,7 @@ class TrendTableViewCell: UITableViewCell {
         label.text = "2,905 트윗"
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
 
