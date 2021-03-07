@@ -38,12 +38,12 @@ class TimelineViewController: UICollectionViewController {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "cloud.bolt.fill"), for: .normal)
         button.addTarget(self, action: #selector(scrollToTop(_:)), for: .touchUpInside)
-        self.tabBarController?.navigationItem.titleView = button
-        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
+        self.navigationItem.titleView = button
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
                                                                                   style: .plain,
                                                                                   target: self,
                                                                                   action: nil)
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"),
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"),
                                                                                    style: .plain,
                                                                                    target: self,
                                                                                    action: nil)
