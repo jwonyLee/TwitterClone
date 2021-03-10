@@ -57,8 +57,11 @@ class TrendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
-    private func configureViews() {
+// MARK: - Private
+private extension TrendTableViewCell {
+    func configureViews() {
         let trendStack = UIStackView(arrangedSubviews: [rankLabel, keywordLabel, tweetCountLabel])
         trendStack.translatesAutoresizingMaskIntoConstraints = false
         trendStack.axis = .vertical
