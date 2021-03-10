@@ -144,8 +144,11 @@ class TweetCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not beem implemented")
     }
+}
 
-    private func configureViews() {
+// MARK: - Private
+private extension TweetCollectionViewCell {
+    func configureViews() {
         let userInfoStack = UIStackView(arrangedSubviews: [usernameLabel, identifierLabel, timeLabel])
         userInfoStack.translatesAutoresizingMaskIntoConstraints = false
         userInfoStack.axis = .horizontal
