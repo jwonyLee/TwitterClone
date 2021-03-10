@@ -9,7 +9,7 @@ import UIKit
 
 class TimelineViewController: UICollectionViewController {
 
-    let tweetFloatingButton: UIButton = {
+    private lazy var tweetFloatingButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "pencil.tip"), for: .normal)
