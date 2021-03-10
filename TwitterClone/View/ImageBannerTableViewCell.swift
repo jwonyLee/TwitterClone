@@ -11,7 +11,7 @@ class ImageBannerTableViewCell: UITableViewCell {
 
     static let identifier = "imageBannerCell"
 
-    let bannerImageView: UIImageView = {
+    private lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .gray
@@ -20,7 +20,7 @@ class ImageBannerTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    let imageTitleLabel: UILabel = {
+    private lazy var imageTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
