@@ -44,8 +44,11 @@ class ImageBannerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
-    private func configureViews() {
+// MARK:- Private
+private extension ImageBannerTableViewCell {
+    func configureViews() {
         bannerImageView.addSubview(imageTitleLabel)
         addSubview(bannerImageView)
 
@@ -61,5 +64,4 @@ class ImageBannerTableViewCell: UITableViewCell {
             bannerImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
 }
