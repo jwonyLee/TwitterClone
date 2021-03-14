@@ -16,10 +16,11 @@ class TimelineViewController: UICollectionViewController {
         button.tintColor = .white
         button.backgroundColor = .systemBlue
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.shadowOffset = .zero
         button.layer.shadowRadius = 1.0
         button.layer.shadowOpacity = 0.5
         button.layer.masksToBounds = false
+        button.layer.shadowPath = UIBezierPath(roundedRect: button.bounds, cornerRadius: button.layer.cornerRadius).cgPath
         return button
     }()
 
