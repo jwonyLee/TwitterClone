@@ -19,7 +19,6 @@ class TimelineViewController: UICollectionViewController {
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         button.layer.shadowRadius = 1.0
         button.layer.shadowOpacity = 0.5
-        button.layer.cornerRadius = 25
         button.layer.masksToBounds = false
         return button
     }()
@@ -32,6 +31,11 @@ class TimelineViewController: UICollectionViewController {
 
         collectionView.backgroundColor = .white
         collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tweetFloatingButton.layer.cornerRadius = tweetFloatingButton.frame.size.height / 2
     }
 
     @objc func scrollToTop(_ sender: UIButton) {
