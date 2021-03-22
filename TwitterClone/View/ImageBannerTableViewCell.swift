@@ -11,7 +11,7 @@ class ImageBannerTableViewCell: UITableViewCell {
 
     static let identifier = "imageBannerCell"
 
-    let bannerImageView: UIImageView = {
+    private lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .gray
@@ -20,7 +20,7 @@ class ImageBannerTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    let imageTitleLabel: UILabel = {
+    private lazy var imageTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -44,8 +44,11 @@ class ImageBannerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
-    private func configureViews() {
+// MARK:- Private
+private extension ImageBannerTableViewCell {
+    func configureViews() {
         bannerImageView.addSubview(imageTitleLabel)
         addSubview(bannerImageView)
 
@@ -61,5 +64,4 @@ class ImageBannerTableViewCell: UITableViewCell {
             bannerImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
 }

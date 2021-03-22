@@ -11,18 +11,18 @@ class TweetCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "cell"
 
-    let profileImageView: UIImageView = {
+    private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "person")
         imageView.backgroundColor = .gray
-        imageView.clipsToBounds = true // 이미지가 cornerRadius에 의해 프레임 밖으로 벗어날 경우 잘라냄
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 25 // TODO: [imageView.frame.size.width(or height) / 2]가 적용되지 않아 임시로 상수값 대입.
+        imageView.layer.cornerRadius = 25
         return imageView
-    }() // layer.masksToBounds와 clipsToBounds의 차이가 무엇인지 찾아보기
+    }()
 
-    let usernameLabel: UILabel = {
+    private lazy var usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -32,7 +32,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    let identifierLabel: UILabel = {
+    private lazy var identifierLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -43,7 +43,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    let timeLabel: UILabel = {
+    private lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -54,7 +54,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    let detailButton: UIButton = {
+    private lazy var detailButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage.init(systemName: "ellipsis"), for: .normal)
@@ -62,7 +62,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
-    let contentTextLabel: UILabel = {
+    private lazy var contentTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -72,7 +72,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    let contentImageView: UIImageView = {
+    private lazy var contentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
@@ -82,7 +82,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
-    let mentionButton: UIButton = {
+    private lazy var mentionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -96,7 +96,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
-    let retweetButton: UIButton = {
+    private lazy var retweetButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -110,7 +110,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
-    let heartButton: UIButton = {
+    private lazy var heartButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -124,7 +124,7 @@ class TweetCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
-    let shareButton: UIButton = {
+    private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -144,8 +144,11 @@ class TweetCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not beem implemented")
     }
+}
 
-    private func configureViews() {
+// MARK: - Private
+private extension TweetCollectionViewCell {
+    func configureViews() {
         let userInfoStack = UIStackView(arrangedSubviews: [usernameLabel, identifierLabel, timeLabel])
         userInfoStack.translatesAutoresizingMaskIntoConstraints = false
         userInfoStack.axis = .horizontal
