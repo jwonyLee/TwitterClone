@@ -11,7 +11,7 @@ class TrendTableViewCell: UITableViewCell {
 
     static let identifier = "trendCell"
 
-    let rankLabel: UILabel = {
+    private lazy var rankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -22,7 +22,7 @@ class TrendTableViewCell: UITableViewCell {
         return label
     }()
 
-    let keywordLabel: UILabel = {
+    private lazy var keywordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -31,7 +31,7 @@ class TrendTableViewCell: UITableViewCell {
         return label
     }()
 
-    let tweetCountLabel: UILabel = {
+    private lazy var tweetCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -57,8 +57,11 @@ class TrendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
-    private func configureViews() {
+// MARK: - Private
+private extension TrendTableViewCell {
+    func configureViews() {
         let trendStack = UIStackView(arrangedSubviews: [rankLabel, keywordLabel, tweetCountLabel])
         trendStack.translatesAutoresizingMaskIntoConstraints = false
         trendStack.axis = .vertical

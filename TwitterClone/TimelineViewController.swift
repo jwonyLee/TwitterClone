@@ -9,18 +9,18 @@ import UIKit
 
 class TimelineViewController: UICollectionViewController {
 
-    let tweetFloatingButton: UIButton = {
+    private lazy var tweetFloatingButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "pencil.tip"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.shadowOffset = .zero
         button.layer.shadowRadius = 1.0
         button.layer.shadowOpacity = 0.5
-        button.layer.cornerRadius = 25
         button.layer.masksToBounds = false
+        button.layer.shadowPath = UIBezierPath(roundedRect: button.bounds, cornerRadius: button.layer.cornerRadius).cgPath
         return button
     }()
 
@@ -34,30 +34,9 @@ class TimelineViewController: UICollectionViewController {
         collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    private func configureNavigation() {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "cloud.bolt.fill"), for: .normal)
-        button.addTarget(self, action: #selector(scrollToTop(_:)), for: .touchUpInside)
-        self.navigationItem.titleView = button
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
-                                                                                  style: .plain,
-                                                                                  target: self,
-                                                                                  action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"),
-                                                                                   style: .plain,
-                                                                                   target: self,
-                                                                                   action: nil)
-    }
-
-    private func configureTweetButton() {
-        view.addSubview(tweetFloatingButton)
-
-        NSLayoutConstraint.activate([
-            tweetFloatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            tweetFloatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            tweetFloatingButton.widthAnchor.constraint(equalToConstant: 50),
-            tweetFloatingButton.heightAnchor.constraint(equalTo: tweetFloatingButton.widthAnchor)
-        ])
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tweetFloatingButton.layer.cornerRadius = tweetFloatingButton.frame.size.height / 2
     }
 
     @objc func scrollToTop(_ sender: UIButton) {
@@ -65,6 +44,7 @@ class TimelineViewController: UICollectionViewController {
     }
 }
 
+// MARK: - Public: Delegate
 extension TimelineViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         20
@@ -81,5 +61,34 @@ extension TimelineViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         return CGSize(width: view.frame.width, height: 300)
+    }
+}
+
+// MARK: - Private
+private extension TimelineViewController {
+    func configureNavigation() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "cloud.bolt.fill"), for: .normal)
+        button.addTarget(self, action: #selector(scrollToTop(_:)), for: .touchUpInside)
+        self.navigationItem.titleView = button
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
+                                                                                  style: .plain,
+                                                                                  target: self,
+                                                                                  action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"),
+                                                                                   style: .plain,
+                                                                                   target: self,
+                                                                                   action: nil)
+    }
+
+    func configureTweetButton() {
+        view.addSubview(tweetFloatingButton)
+
+        NSLayoutConstraint.activate([
+            tweetFloatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            tweetFloatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            tweetFloatingButton.widthAnchor.constraint(equalToConstant: 50),
+            tweetFloatingButton.heightAnchor.constraint(equalTo: tweetFloatingButton.widthAnchor)
+        ])
     }
 }

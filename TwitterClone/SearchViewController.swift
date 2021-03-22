@@ -15,33 +15,9 @@ class SearchViewController: UITableViewController {
         configureNavigation()
         configureTableView()
     }
-
-    private func configureTableView() {
-        tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(ImageBannerTableViewCell.self, forCellReuseIdentifier: ImageBannerTableViewCell.identifier)
-        tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
-        tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: UserFollowTableViewCell.identifier)
-    }
-    
-    private func configureNavigation() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Tweet"
-        navigationItem.titleView = searchController.searchBar
-        definesPresentationContext = true
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: nil)
-    }
 }
 
+// MARK: - Public: Delegate
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
@@ -97,4 +73,33 @@ extension SearchViewController {
             return tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath)
         }
     }
+}
+
+// MARK: - Private
+private extension SearchViewController {
+    func configureTableView() {
+        tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(ImageBannerTableViewCell.self, forCellReuseIdentifier: ImageBannerTableViewCell.identifier)
+        tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
+        tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: UserFollowTableViewCell.identifier)
+    }
+
+    func configureNavigation() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Tweet"
+        navigationItem.titleView = searchController.searchBar
+        definesPresentationContext = true
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: nil)
+    }
+
 }
